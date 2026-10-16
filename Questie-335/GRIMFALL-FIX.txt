@@ -1,0 +1,13 @@
+Grimfall CoA compatibility patch - 2026-10-16
+
+Fixes QuestiePlayer.lua initialization arithmetic on nil classId when the
+client returns an unknown/custom class token. Standard-class filtering is
+unchanged. Unknown classes show all class-restricted quests; the server still
+decides which quests can be accepted. This is not a custom quest database.
+
+Install: Exit WoW. Replace the existing Interface/AddOns/Questie-335 folder
+with the Questie-335 folder in this archive. Do not nest the folders.
+SavedVariables do not need to be deleted.
+
+Validation: isolated Lua runtime tests for standard and unknown classes.
+Requires in-game verification on Grimfall; no live client was available.
