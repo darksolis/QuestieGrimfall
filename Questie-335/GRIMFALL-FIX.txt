@@ -11,3 +11,9 @@ SavedVariables do not need to be deleted.
 
 Validation: isolated Lua runtime tests for standard and unknown classes.
 Requires in-game verification on Grimfall; no live client was available.
+
+Update 2 - 2026-10-18
+Fixes RegisterQuestStartTooltip concatenation on a nil name. Missing names
+use Unknown (ID) until a later registration supplies the real name. Incomplete
+registrations missing quest ID, starter ID, or lookup key are skipped.
+Custom server quest/NPC/item database coverage is still not guaranteed.

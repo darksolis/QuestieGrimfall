@@ -198,6 +198,14 @@ end
 ---@param starterId number The ID of the object or NPC the tooltip should show on
 ---@param key string @Either m_<npcId> or o_<objectId>
 function QuestieTooltips:RegisterQuestStartTooltip(questId, name, starterId, key, type)
+    -- Custom server records and uncached items may not have a name yet.
+    -- Keep a stable label so registration, refresh, and removal use the same key.
+    if not questId or not starterId or not key then
+        return
+    end
+    if not name or name == "" then
+        name = "Unknown (" .. tostring(starterId) .. ")"
+    end
     if not QuestieTooltips.lookupByKey[key] then
         QuestieTooltips.lookupByKey[key] = {};
     end
